@@ -1,16 +1,20 @@
-//TODO read from config
-const apiKey = 'YOUR_API_KEY';
-const gpt3 = new openai({ key: apiKey });
+//config
+const OpenAI = require('openai');
+//config
+require('dotenv').config();
+const apiKey = process.env.OPENAI_API_KEY;
+const openai = new OpenAI({ key: apiKey });
 
 async function generateResponse(prompt) {
     try {
-        const response = await gpt3.Completion.create({
-            engine: 'davinci',
-            prompt: prompt,
+        //console.log(apiKey, openai)
+        const response = await openai.chat.completions.create({
+            model: 'gpt-3.5-turbo',
+            messages:[{role: 'user', content: prompt}] ,
             max_tokens: 50,
         });
-
-        return response.choices[0].text;
+        console.log(response)
+        return response.choices[0].message;
     } catch (error) {
         console.error('Error:', error);
         return 'An error occurred while processing your request.';
@@ -18,11 +22,11 @@ async function generateResponse(prompt) {
 }
 
 // Usage
-// const prompt = "Translate the following English text to French: 'Hello, how are you?'";
-// generateResponse(prompt)
-//     .then((response) => {
-//         console.log('GPT-3 Response:', response);
-//     })
-//     .catch((error) => {
-//         console.error('Error:', error);
-//     });
+const prompt = "Tell me a halloween joke";
+generateResponse(prompt)
+    .then((response) => {
+        console.log('GPT-3 Response:', response);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
