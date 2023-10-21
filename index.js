@@ -34,6 +34,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Serve the API routes
 app.use('/jokes', require('./routes/jokes'));
 app.use('/costumes', require('./routes/costumes'));
+app.use('/candy-locations', require('./routes/candy-locations'))
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

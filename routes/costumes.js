@@ -1,3 +1,5 @@
+const express = require('express');
+const router = express.Router();
 /**
  * @swagger
  * /jokes:
@@ -11,9 +13,6 @@
  *             example:
  *               jokes: ["Why did the ghost go to the party?", "Because it heard it was going to be a 'boo'-last!"]
  */
-const express = require('express');
-const router = express.Router();
-
 router.get('/', (req, res) => {
   res.json({
     jokes: [

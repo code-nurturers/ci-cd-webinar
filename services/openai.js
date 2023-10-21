@@ -22,11 +22,13 @@ async function generateResponse(prompt) {
 }
 
 // Usage
-const prompt = "Tell me a halloween joke";
-generateResponse(prompt)
-    .then((response) => {
-        console.log('GPT-3 Response:', response);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+// const prompt = "Tell me a halloween joke";
+// generateResponse(prompt)
+//     .then((response) => {
+//         console.log('GPT-3 Response:', response);
+//     })
+//     .catch((error) => {
+//         console.error('Error:', error);
+//     });
+const openAiServices = {generateResponse}
+module.exports = openAiServices

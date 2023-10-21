@@ -1,3 +1,4 @@
+const openAiService = require('../services/openai')
 /**
  * @swagger
  * /jokes:
@@ -9,18 +10,24 @@
  *         content:
  *           application/json:
  *             example:
- *               jokes: ["Why did the ghost go to the party?", "Because it heard it was going to be a 'boo'-last!"]
+ *               jokes: ["Why can't skeletons fight? They've got no guts!"]
  */
 const express = require('express');
 const router = express.Router();
-
+let jokes = ["Why can't skeletons fight? They've got no guts!"]
 router.get('/', (req, res) => {
-  res.json({
-    jokes: [
-      "Why did the ghost go to the party?",
-      "Because it heard it was going to be a 'boo'-last!",
-    ],
-  });
+  openAiService.generateResponse("Tell me a halloween joke")
+  .then((response) => {
+    console.log('GPT-3 Response:', response);
+    jokes.push(response.content)
+    res.json({
+      jokes,
+    });
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+  
 });
 
 module.exports = router;
