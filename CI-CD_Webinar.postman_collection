@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "39e5bfd6-4b4d-4a5d-87f9-b48594ea6013",
+		"name": "CI/CD Webinar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get candy locations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/candy-locations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"candy-locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get jokes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/jokes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"jokes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
