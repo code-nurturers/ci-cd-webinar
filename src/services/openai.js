@@ -2,11 +2,12 @@
 const OpenAI = require('openai');
 //config
 require('dotenv').config();
-const apiKey = process.env.OPENAI_API_KEY;
-const openai = new OpenAI({ key: apiKey });
+
 
 async function generateResponse(prompt) {
     try {
+        const apiKey = process.env.OPENAI_API_KEY;
+        const openai = new OpenAI({ key: apiKey });
         //console.log(apiKey, openai)
         const response = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
