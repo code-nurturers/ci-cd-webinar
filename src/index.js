@@ -1,10 +1,10 @@
 //create app
 const express = require('express');
 const app = express();
-const port = 3000; // or any other port you prefer
 
 //config
 require('dotenv').config();
+const port = process.env.PORT
 
 app.use(express.json());
 
