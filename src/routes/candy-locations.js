@@ -60,6 +60,14 @@ let candyLocations = [
     "address": "Area 51, Roswell, New Mexico",
     "latitude": 29.9169,
     "longitude": -95.6145
+  },
+  {
+    "location": "Spooky Treats Emporium",
+    "city": "Houston",
+    "state": "Texas",
+    "address":"1234 Emporium Dr",
+    "latitude": 29.7537,
+    "longitude": -95.3624
   }
 ];
 
